@@ -442,6 +442,7 @@ public class OpenAccount extends JFrame implements ActionListener {
                 Connection conn = cl.connection();
                 Query query = new Query();
                 int amount = Integer.parseInt(depositMoney);
+                setVisible(false);
                 new OpenAccount();
                 query.insertData(conn, "HBS"+phoneNo.substring(3), firstName,middleName, lastName, day+"/"+month+"/"+year,
                         gender, fatherName, motherName, phoneNo, telNo, aadhaarNo, gMail, currentAddress, birthAddress,
