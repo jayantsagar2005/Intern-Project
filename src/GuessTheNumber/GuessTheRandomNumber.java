@@ -97,6 +97,8 @@ public class GuessTheRandomNumber {
                     System.out.println();
                 }
             }
+
+
             System.out.println();
             System.out.println("========= GAME OVER =========");
             System.out.println();
