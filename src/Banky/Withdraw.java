@@ -14,7 +14,7 @@ public class Withdraw extends JFrame implements ActionListener {
         setLayout(null);
 
         JLabel heading = new JLabel("WITHDRAW MONEY");
-        heading.setBounds(30,20,500,50);
+        heading.setBounds(15,20,500,50);
         heading.setForeground(Color.black);
         heading.setFont(new Font("Times New Roman",Font.ITALIC,40));
         add(heading);
