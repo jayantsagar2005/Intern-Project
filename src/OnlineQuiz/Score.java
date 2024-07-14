@@ -17,33 +17,21 @@ public class Score extends JFrame implements ActionListener {
     String username;
     int score;
     JButton again,exit;
-    String[][] ques = new String[100][5];
-    String[][] ans = new String[100][2];
-    String[][] userAns = new String[10][1];
-    int[] randomNumberArray = new int[10];
+    String[][] ques;
+    String[][] ans;
+    String[][] userAns;
+    int[] randomNumberArray;
 
-    Score(int score, String username, String[][] ques, String[][] ans, String[][] userAns, int[] randomQuestion) throws Exception{
+    Score(int score, String username, String[][] ques, String[][] ans, String[][] userAns, int[] randomQuestion){
+        this.ques = ques;
+        this.ans = ans;
+        this.userAns = userAns;
+        this.randomNumberArray = randomQuestion;
 
         this.score = score;
         this.username = username;
 
 
-
-        for (int i=0; i<100; i++){
-            System.arraycopy(ques[i], 0, this.ques[i], 0, 5);
-        }
-
-        for (int i=0; i<100; i++){
-            System.arraycopy(ans[i], 0, this.ans[i], 0, 2);
-        }
-
-        for (int i=0; i<10; i++){
-            System.arraycopy(userAns[i], 0, this.userAns[i], 0, 1);
-        }
-
-
-
-        System.arraycopy(randomQuestion, 0, this.randomNumberArray, 0, 10);
 
         getContentPane().setBackground(Color.CYAN);
         setLayout(null);
@@ -104,7 +92,7 @@ public class Score extends JFrame implements ActionListener {
         add(again);
 
         // exit button properties
-        exit = new JButton("Exit");
+        exit = new JButton("Check Solution");
         exit.setBounds(500,180,230,45);
         exit.setFont(new Font("Times New Roman",Font.BOLD,25));
         exit.setBackground(Color.black);
@@ -167,12 +155,12 @@ public class Score extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) throws Exception {
-        String[][] ques1 = new String[100][5];
-        String[][] ans1 = new String[100][2];
-        String[][] userAns1 = new String[10][1];
-        int[] random1 = new int[10];
+        String[][] ques = new String[10][5];
+        String[][] ans = new String[10][2];
+        String[][] userAns = new String[10][1];
+        int[] randomNumberArray = new int[10];
 
-        new Score(0,"User",ques1,ans1,userAns1,random1);
+        new Score(0,"User",ques,ans,userAns,randomNumberArray);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -181,6 +169,7 @@ public class Score extends JFrame implements ActionListener {
             new LogIn();
         }else{
             setVisible(false);
+            new Solution(ques, ans, userAns, randomNumberArray, 0);
         }
     }
 }
